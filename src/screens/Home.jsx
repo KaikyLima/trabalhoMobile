@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
-import { FlatList, Image, SafeAreaView, StyleSheet, View } from "react-native";
+import { FlatList, Image, SafeAreaView, StyleSheet, View, TouchableOpacity} from "react-native";
 import { Text } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [csgo, setCsgo] = useState([]);
 
   const fetchCsgoData = useCallback(async () => {
@@ -32,6 +33,10 @@ const Home = () => {
       console.error(error);
     }
   }, []);
+
+  const navegarDetalhes = (item) => {
+    navigation.navigate('Detalhes', {id:item.id})
+  }
   
   useEffect(() => {
     fetchCsgoData();
@@ -43,9 +48,14 @@ const Home = () => {
         <Text style={styles.itemText}>{item.name}</Text>
         <Image source={{uri:item.image}} style={styles.imageCss}/>
         <Text>{item.rarity}</Text>
+        <TouchableOpacity onPress={item = () => navegarDetalhes(item)}>
+            <Text>Detalhes...</Text>
+        </TouchableOpacity>
       </View>
     )
   };
+
+  
 
   return (
     <SafeAreaView>
