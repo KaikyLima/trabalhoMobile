@@ -1,4 +1,4 @@
-import { Alert, SafeAreaView, TextInput, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Alert, SafeAreaView, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 
