@@ -25,7 +25,7 @@ const Home = () => {
   const fetchCsgoData = useCallback(async () => {
     try {
       const { data: response } = await axios.get(
-        "https://cs2-api.vercel.app/api/items?page=1"
+        "https://cs2-api.vercel.app/api/items"
       );
       setCsgo(response.data);
     } catch (error) {
@@ -49,7 +49,6 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <Text>AOOO</Text>
       <FlatList data={csgo} renderItem={renderItem} />
     </SafeAreaView>
   );

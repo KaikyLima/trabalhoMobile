@@ -2,7 +2,7 @@ import { Alert, SafeAreaView, TextInput, Text, TouchableOpacity, StyleSheet } fr
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');   
 
@@ -10,6 +10,8 @@ const LoginPage = () => {
 const verificarLogin = () => {
     if (email.trim() === '' || password.trim() === '') {
       Alert.alert('O preenchimento dos campos é obrigatório');
+    } else {
+      navigation.navigate('Home')
     }
   };
 
@@ -29,7 +31,7 @@ const verificarLogin = () => {
         />
 
         <TouchableOpacity style={styles.button} onPress={verificarLogin}>
-
+        
             <Text>Logar</Text>
 
         </TouchableOpacity>
