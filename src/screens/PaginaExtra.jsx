@@ -28,7 +28,6 @@ const DetalhesItem = ({ route }) => {
   useEffect(() => {
     const fetchItemDetails = async () => {
       try {
-        console.log(id)
         const { data: response } = await axios.get(
           `https://cs2-api.vercel.app/api/items/?id=${id}`
         );
@@ -48,10 +47,6 @@ const DetalhesItem = ({ route }) => {
       {itemDetails && (
         <>
           <View>
-            <Text style={styles.itemText}>{itemDetails.name}</Text>
-            <Image source={{ uri: itemDetails.image }} style={styles.imageCss} />
-            <Text>Descrição: {itemDetails.description}</Text>
-            <Text>Raridade: {itemDetails.rarity}</Text>
             <Text>Coleção: {itemDetails.collections[0].name}</Text>
             <Image source={{ uri: itemDetails.collections[0].image }} style={styles.imageCssColection} />
 

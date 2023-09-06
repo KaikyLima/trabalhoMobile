@@ -35,7 +35,7 @@ const Home = ({navigation}) => {
   }, []);
 
   const navegarDetalhes = (item) => {
-    navigation.navigate('Detalhes', {id:item.id})
+    navigation.navigate('Detalhes', {id: item.id})
   }
   
   useEffect(() => {
@@ -48,7 +48,7 @@ const Home = ({navigation}) => {
         <Text style={styles.itemText}>{item.name}</Text>
         <Image source={{uri:item.image}} style={styles.imageCss}/>
         <Text>{item.rarity}</Text>
-        <TouchableOpacity onPress={item = () => navegarDetalhes(item)}>
+        <TouchableOpacity onPress={() => navegarDetalhes(item)}>
             <Text>Detalhes...</Text>
         </TouchableOpacity>
       </View>
