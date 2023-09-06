@@ -60,8 +60,12 @@ const DetalhesItem = ({ route }) => {
             <Text style={styles.itemTextTitle}>Descrição: </Text>
               <Text style={styles.itemText}>{itemDetails.description}</Text>
               <Text style={styles.itemText}>Raridade: {itemDetails.rarity}</Text>
-            <Text style={styles.itemText}>Coleção: {itemDetails.collections[0].name}</Text>
-            <Image source={{ uri: itemDetails.collections[0].image }} style={styles.imageCssColection} />
+            {itemDetails.collections && 
+              <>
+                <Text style={styles.itemText}>Coleção: {itemDetails.collections[0].name}</Text>
+                <Image source={{ uri: itemDetails.collections[0].image }} style={styles.imageCssColection} />
+              </>
+            }
             
           </View>
         </>
