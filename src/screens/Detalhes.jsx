@@ -25,6 +25,11 @@ const styles = StyleSheet.create({
     height: 275,
     margin: 50
   },
+  Space: {
+    height: 200,
+    width: 400,
+    backgroundColor: "#000"
+  }
 });
 
 const DetalhesItem = ({ route }) => {
@@ -71,6 +76,7 @@ const DetalhesItem = ({ route }) => {
         </>
       )}
     </View>
+    <View style={styles.Space}></View>
     </ScrollView>
     </SafeAreaView>
     
