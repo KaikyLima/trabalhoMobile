@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Image, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, Image, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import axios from "axios";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f0fdff",
+    backgroundColor: "#50515a",
   },
   itemText: {
-    color: "black",
+    color: "white",
     fontSize: 16,
     padding: 10,
+  },
+  itemTextTitle: {
+    color: "white",
+    fontSize: 25,
+    padding: 5,
   },
   imageCss: {
     width: 360,
@@ -44,15 +49,17 @@ const DetalhesItem = ({ route }) => {
 
   return (
     <SafeAreaView>
+      <ScrollView>
     <View style={styles.container}>
       {itemDetails && (
         <>
           <View>
-            <Text style={styles.itemText}>{itemDetails.name}</Text>
+            <Text style={styles.itemTextTitle}>{itemDetails.name}</Text>
             <Image source={{ uri: itemDetails.image }} style={styles.imageCss} />
-            <Text>Descrição: {itemDetails.description}</Text>
-            <Text>Raridade: {itemDetails.rarity}</Text>
-            <Text>Coleção: {itemDetails.collections[0].name}</Text>
+            <Text style={styles.itemTextTitle}>Descrição: </Text>
+              <Text style={styles.itemText}>{itemDetails.description}</Text>
+              <Text style={styles.itemText}>Raridade: {itemDetails.rarity}</Text>
+            <Text style={styles.itemText}>Coleção: {itemDetails.collections[0].name}</Text>
             <Image source={{ uri: itemDetails.collections[0].image }} style={styles.imageCssColection} />
 
             
@@ -60,6 +67,7 @@ const DetalhesItem = ({ route }) => {
         </>
       )}
     </View>
+    </ScrollView>
     </SafeAreaView>
     
   );

@@ -6,15 +6,16 @@ import { NavigationContainer } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f0fdff", 
-
+    backgroundColor: "#50515a", 
   },
   itemText: {
-    color: "black", 
+    backgroundColor: "#50515a",
+    color: "#f9f9f9", 
     fontSize: 16,
     padding: 10,
   },
   imageCss: {
+    backgroundColor: "#50515a",
     width: 100,
     height: 100,
   }
@@ -35,6 +36,7 @@ const Home = ({navigation}) => {
   }, []);
 
   const navegarDetalhes = (item) => {
+    console.log(item.id)
     navigation.navigate('Detalhes', {id: item.id})
   }
   
@@ -44,12 +46,12 @@ const Home = ({navigation}) => {
 
   const renderItem = ({ item }) => {
     return  (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.itemText}>{item.name}</Text>
         <Image source={{uri:item.image}} style={styles.imageCss}/>
-        <Text>{item.rarity}</Text>
+        <Text style={styles.itemText}>{item.rarity}</Text>
         <TouchableOpacity onPress={() => navegarDetalhes(item)}>
-            <Text>Detalhes...</Text>
+            <Text style={styles.itemText}>Detalhes...</Text>
         </TouchableOpacity>
       </View>
     )
@@ -58,7 +60,7 @@ const Home = ({navigation}) => {
   
 
   return (
-    <SafeAreaView>
+    <SafeAreaView >
       <FlatList data={csgo} renderItem={renderItem} />
     </SafeAreaView>
   );
