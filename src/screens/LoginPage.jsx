@@ -25,7 +25,7 @@ const LoginPage = ({ navigation }) => {
         onChangeText={setEmail}
         value={email}
       />
-      <TextInput
+      <TextInput secureTextEntry
         placeholder="Senha"
         style={styles.input}
         onChangeText={setPassword}
