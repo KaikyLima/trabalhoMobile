@@ -6,18 +6,23 @@ import { NavigationContainer } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#50515a", 
+    backgroundColor: "#000", 
   },
   itemText: {
-    backgroundColor: "#50515a",
-    color: "#f9f9f9", 
-    fontSize: 16,
+    backgroundColor: "#000",
+    color: "#808080", 
+    fontSize: 30,
     padding: 10,
   },
   imageCss: {
-    backgroundColor: "#50515a",
-    width: 100,
-    height: 100,
+    backgroundColor: "#000",
+    width: 400,
+    height: 350,
+  },
+  divisao: {
+    backgroundColor: "#FFFF00",
+    width: 800,
+    height: 5
   }
 });
 
@@ -46,14 +51,15 @@ const Home = ({navigation}) => {
 
   const renderItem = ({ item }) => {
     return  (
+      <TouchableOpacity onPress={() => navegarDetalhes(item)}>
       <View style={styles.container}>
         <Text style={styles.itemText}>{item.name}</Text>
         <Image source={{uri:item.image}} style={styles.imageCss}/>
         <Text style={styles.itemText}>{item.rarity}</Text>
-        <TouchableOpacity onPress={() => navegarDetalhes(item)}>
-            <Text style={styles.itemText}>Detalhes...</Text>
-        </TouchableOpacity>
       </View>
+      <View style={styles.divisao}></View>
+      </TouchableOpacity>
+      
     )
   };
 

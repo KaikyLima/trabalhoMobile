@@ -4,13 +4,15 @@ import LoginPage from './src/screens/LoginPage';
 import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
 import Detalhes from './src/screens/Detalhes';
+import { FlatList, Image, SafeAreaView, StyleSheet, View, TouchableOpacity} from "react-native";
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer >
+      <Stack.Navigator >
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Detalhes" component={Detalhes} />

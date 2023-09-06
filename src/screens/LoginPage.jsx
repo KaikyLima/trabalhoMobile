@@ -44,25 +44,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000', // Defina a cor de fundo desejada
+    backgroundColor: '#000', 
   },
   input: {
     backgroundColor: '#fff',
     height: 40,
-    width: '80%', // Use a largura desejada
-    marginVertical: 10, // Reduza a margem vertical
+    width: '80%', 
+    marginVertical: 10, 
     borderWidth: 1,
     padding: 10,
 
   },
   button: {
     backgroundColor: '#c1bdad',
-    width: '80%', // Use a largura desejada
+    width: '80%', 
     padding: 10,
-    alignItems: 'center', // Centralize o conteúdo horizontalmente
+    alignItems: 'center', 
   },
   buttonText: {
-    color: '#0c242a', // Defina a cor do texto desejada
+    color: '#0c242a', 
   },
   imageCss: {
     width: 400,

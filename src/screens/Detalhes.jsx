@@ -4,15 +4,15 @@ import axios from "axios";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#50515a",
+    backgroundColor: "#000",
   },
   itemText: {
-    color: "white",
+    color: "#808080",
     fontSize: 16,
     padding: 10,
   },
   itemTextTitle: {
-    color: "white",
+    color: "#808080",
     fontSize: 25,
     padding: 5,
   },
@@ -21,8 +21,9 @@ const styles = StyleSheet.create({
     height: 400,
   },
   imageCssColection: {
-    width: 100,
-    height: 100,
+    width: 275,
+    height: 275,
+    margin: 50
   },
 });
 
@@ -61,7 +62,6 @@ const DetalhesItem = ({ route }) => {
               <Text style={styles.itemText}>Raridade: {itemDetails.rarity}</Text>
             <Text style={styles.itemText}>Coleção: {itemDetails.collections[0].name}</Text>
             <Image source={{ uri: itemDetails.collections[0].image }} style={styles.imageCssColection} />
-
             
           </View>
         </>
