@@ -11,7 +11,7 @@ const LoginPage = ({ navigation }) => {
       Alert.alert('O preenchimento dos campos é obrigatório');
     } else {
       Alert.alert(
-        'Escolha uma ação',
+        'Escolha uma página',
         'Você deseja ir para a tela Home ou para a PaginaExtra?',
         [
           {
