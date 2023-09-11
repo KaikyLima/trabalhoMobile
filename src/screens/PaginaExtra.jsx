@@ -1,63 +1,52 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, Image, StyleSheet, SafeAreaView } from "react-native";
 import axios from "axios";
+import React, { useCallback, useEffect, useState } from "react";
+import { FlatList, Image, SafeAreaView, StyleSheet, View, Text } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#f0fdff",
-  },
-  itemText: {
-    color: "black",
-    fontSize: 16,
-    padding: 10,
-  },
-  imageCss: {
-    width: 360,
+  imageCss:{
+    width: 400,
     height: 400,
-  },
-  imageCssColection: {
-    width: 100,
-    height: 100,
-  },
-});
+    
+  }
+})
 
-const DetalhesItem = ({ route }) => {
-  const { id } = route.params;
-  const [itemDetails, setItemDetails] = useState(null);
+const PaginaExtra = () => {
+  const [cat, setCat] = useState([]);
+
+  const fetchCat = useCallback(async () => {
+    try {
+      const { data: response } = await axios.get(
+        `https://api.thecatapi.com/v1/images/search?limit=10`
+      );
+      setCat(response);
+      console.log(cat)
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchItemDetails = async () => {
-      try {
-        const { data: response } = await axios.get(
-          `https://cs2-api.vercel.app/api/items/?id=${id}`
-        );
-        console.log(response)
-        setItemDetails(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    fetchCat();
+  }, []);
 
-    fetchItemDetails();
-  }, [id]);
+  const renderItem = ({ item }) => {
+    return (
+      <View>
+        <Image source={{ uri: item.url }} style={styles.imageCss} />
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView>
-    <View style={styles.container}>
-      {itemDetails && (
-        <>
-          <View>
-            <Text>Coleção: {itemDetails.collections[0].name}</Text>
-            <Image source={{ uri: itemDetails.collections[0].image }} style={styles.imageCssColection} />
-
-            
-          </View>
-        </>
-      )}
-    </View>
+      <FlatList
+        data={cat}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+        onEndReached={fetchCat}
+      />
     </SafeAreaView>
-    
   );
 };
 
-export default DetalhesItem;
+export default PaginaExtra;

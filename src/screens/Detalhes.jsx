@@ -64,7 +64,7 @@ const DetalhesItem = ({ route }) => {
             <Image source={{ uri: itemDetails.image }} style={styles.imageCss} />
             <Text style={styles.itemTextTitle}>Descrição: </Text>
               <Text style={styles.itemText}>{itemDetails.description}</Text>
-              <Text style={styles.itemText}>Raridade: {itemDetails.rarity}</Text>
+              <Text style={styles.itemText}>Raridade: {itemDetails.rarity.name}</Text>
             {itemDetails.collections && 
               <>
                 <Text style={styles.itemText}>Coleção: {itemDetails.collections[0].name}</Text>

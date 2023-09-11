@@ -52,12 +52,12 @@ const Home = ({ navigation }) => {
   }, [paginaAtual]); 
 
   const renderItem = ({ item }) => {
-    return (
+    return (  
       <TouchableOpacity onPress={() => navegarDetalhes(item)}>
         <View style={styles.container}>
           <Text style={styles.itemText}>{item.name}</Text>
           <Image source={{ uri: item.image }} style={styles.imageCss} />
-          <Text style={styles.itemText}>{item.rarity}</Text>
+          <Text style={styles.itemText}>{item.rarity.name}</Text>
         </View>
         <View style={styles.divisao}></View>
       </TouchableOpacity>

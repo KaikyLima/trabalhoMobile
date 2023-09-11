@@ -10,14 +10,27 @@ const LoginPage = ({ navigation }) => {
     if (email.trim() === '' || password.trim() === '') {
       Alert.alert('O preenchimento dos campos é obrigatório');
     } else {
-      navigation.navigate('Home');
+      Alert.alert(
+        'Escolha uma ação',
+        'Você deseja ir para a tela Home ou para a PaginaExtra?',
+        [
+          {
+            text: 'Home',
+            onPress: () => navigation.navigate('Home'),
+          },
+          {
+            text: 'PaginaExtra',
+            onPress: () => navigation.navigate('PaginaExtra'),
+          },
+        ],
+        { cancelable: false }
+      );
     }
   };
 
   return (
     <SafeAreaView style={styles.container}>
-
-      <Image source={require('../images/logo.gif')} style={styles.imageCss}/>
+      <Image source={require('../images/logo.gif')} style={styles.imageCss} />
 
       <TextInput
         placeholder="Email"
@@ -25,7 +38,8 @@ const LoginPage = ({ navigation }) => {
         onChangeText={setEmail}
         value={email}
       />
-      <TextInput secureTextEntry
+      <TextInput
+        secureTextEntry
         placeholder="Senha"
         style={styles.input}
         onChangeText={setPassword}
@@ -44,30 +58,29 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000', 
+    backgroundColor: '#000',
   },
   input: {
     backgroundColor: '#fff',
     height: 40,
-    width: '80%', 
-    marginVertical: 10, 
+    width: '80%',
+    marginVertical: 10,
     borderWidth: 1,
     padding: 10,
-
   },
   button: {
     backgroundColor: '#c1bdad',
-    width: '80%', 
+    width: '80%',
     padding: 10,
-    alignItems: 'center', 
+    alignItems: 'center',
   },
   buttonText: {
-    color: '#0c242a', 
+    color: '#0c242a',
   },
   imageCss: {
     width: 400,
     height: 300,
-    margin: -100
+    margin: -100,
   },
 });
 

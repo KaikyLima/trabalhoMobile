@@ -6,6 +6,7 @@ import * as React from 'react';
 import Detalhes from './src/screens/Detalhes';
 import { FlatList, Image, SafeAreaView, StyleSheet, View, TouchableOpacity} from "react-native";
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import PaginaExtra from './src/screens/PaginaExtra';
 
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Detalhes" component={Detalhes} />
-
+        <Stack.Screen name="PaginaExtra" component={PaginaExtra} />
 
       </Stack.Navigator>
   </NavigationContainer>
