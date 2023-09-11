@@ -15,11 +15,11 @@ const LoginPage = ({ navigation }) => {
         'Você deseja ir para a tela Home ou para a PaginaExtra?',
         [
           {
-            text: 'Home',
+            text: 'Coleção CsGo',
             onPress: () => navigation.navigate('Home'),
           },
           {
-            text: 'PaginaExtra',
+            text: 'Gatos fazendo gatices ',
             onPress: () => navigation.navigate('PaginaExtra'),
           },
         ],
